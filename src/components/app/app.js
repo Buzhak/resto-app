@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AppHeader from '../app-header';
 import Background from './food-bg.jpg';
+import FoodItem from '../food-item';
 import React from 'react';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<MainPage/>}/>
                 <Route path='/cart' element={<CartPage/>}/>
+                <Route path='/food/:id' element = {<FoodItem/>}/>
             </Routes>
         </div>
     )
