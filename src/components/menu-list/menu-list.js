@@ -1,7 +1,7 @@
 import './menu-list.scss';
 
 import React, {Component} from 'react';
-import {menuError, menuLoaded, menuRequested} from '../../actions';
+import {addToCart, menuError, menuLoaded, menuRequested} from '../../actions';
 
 import Error from '../error';
 import MenuListItem from '../menu-list-item';
@@ -20,7 +20,7 @@ class MenuList extends Component {
     
     }
     render() {
-        const {menuItems, loading, error} = this.props;
+        const {menuItems, loading, error, addToCart} = this.props;
         if (error) {
             return <Error/>
         }
@@ -31,7 +31,11 @@ class MenuList extends Component {
             <ul className="menu__list">
                 {
                     menuItems.map(menuItem => {
-                        return <MenuListItem key={menuItem.id} menuItem={menuItem}/>;
+                        return <MenuListItem
+                            key={menuItem.id}
+                            menuItem={menuItem}
+                            onAddToCart={() => addToCart(menuItem.id)}
+                        />;
                     })
                 }
             </ul>
@@ -47,18 +51,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         menuLoaded: (newMenu) => {
-//             dispatch(menuLoaded(newMenu))
-//         }
-//     }
-// }
-
 const mapDispatchToProps = {
     menuLoaded,
     menuRequested,
-    menuError
+    menuError,
+    addToCart
 };
 
 

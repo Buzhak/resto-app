@@ -9,7 +9,7 @@ import React from 'react';
 const App = () => {
     return (
         <div style={{background: `url(${Background}) center center/cover no-repeat`}} className="app">
-            <AppHeader total={50}/>
+            <AppHeader/>
             <Routes>
                 <Route path='/' element={<MainPage/>}/>
                 <Route path='/cart' element={<CartPage/>}/>

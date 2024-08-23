@@ -2,15 +2,14 @@ import React, { Component } from "react";
 
 import FoodCard from "./food-card";
 import RestoService from '../../services/resto-service'
+import {addToCart} from '../../actions';
+import { connect } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-const FoodItemWraper = () => {
+const FoodItemWraper = (props) => {
     const {id} = useParams();
-
-    return <FoodItem id={id}/>;
+    return <FoodItem {...props} id={id}/>;
 }
-
-export default FoodItemWraper;
 
 class FoodItem extends Component {
     state = {
@@ -44,6 +43,7 @@ class FoodItem extends Component {
 
     render() {
         const { foodItem, loading, error } = this.state;
+        const { addToCart } = this.props;
 
         if (loading) {
             return <div>Loading...</div>;
@@ -52,9 +52,14 @@ class FoodItem extends Component {
         if (error) {
             return <div>Error loading food item</div>;
         }
-        
         return (
-            <FoodCard foodItem={foodItem}/>
+            <FoodCard foodItem={foodItem} onAddToCart={() => addToCart(foodItem.id)}/>
         )
     }
 }
+
+const mapDispatchToProps = {
+    addToCart
+}
+
+export default connect(null, mapDispatchToProps)(FoodItemWraper);

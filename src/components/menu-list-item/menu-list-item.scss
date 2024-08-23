@@ -13,6 +13,7 @@
         font-size: 22px;
         margin-bottom: 20px;
         text-align: center;
+        cursor: pointer;
     }
     &__img {
         width: calc(100% + 40px);
@@ -20,6 +21,7 @@
         height: 240px;
         object-fit: cover;
         margin-bottom: 20px;
+        cursor: pointer;
     }
     &__category, &__price {
         font-size: 18px;
