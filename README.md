@@ -23,6 +23,7 @@
 * JS
 * HTML
 * CSS
+* SCSS
 * REACT
 * JSX
 * Redux
