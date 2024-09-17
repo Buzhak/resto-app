@@ -7,7 +7,7 @@
 
 1. Клонируем репозиторий
   ```
-  git clone git@github.com:Buzhak/react_got_app.git
+  git clone git@github.com:Buzhak/resto-app.git
   ```
 2. Устанавливаем зависимости.
   ```
